@@ -1,12 +1,61 @@
 // lib/fetchZenQuotes.ts
 
 export async function fetchZenQuotes(): Promise<string[]> {
-  const response = await fetch("/api/zen")
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch Zen quotes")
-  }
-
-  const data = await response.json()
-  return Array.isArray(data) ? data.filter(Boolean) : []
+  return [
+    "When you realize nothing is lacking, the whole world belongs to you. – Lao Tzu",
+    "To think in terms of either pessimism or optimism oversimplifies the truth. The problem is to see reality as it is. – Thich Nhat Hạnh",
+    "The feeling that any task is a nuisance will soon disappear if it is done in mindfulness. – Thich Nhat Hahn",
+    "Only when you can be extremely pliable and soft can you be extremely hard and strong. – Zen Proverb",
+    "Zen is not some kind of excitement, but concentration on our usual everyday routine. – Shunryu Suzuki",
+    "Each morning, we are born again. What we do today is what matters most. – Buddha",
+    "Everything that has a beginning has an ending. Make your peace with that and all will be well. – Jack Kornfield",
+    "Zen is not effort. Effort is tension, effort is work, effort is to achieve something. Zen is not something to achieve. You are already that. Just relax, relax so deeply that you become a revelation to yourself.",
+    "Throughout this life, you can never be certain of living long enough to take another breath. – Huang Po",
+    "Awareness is the greatest agent for change. – Eckhart Tolle",
+    "The practice of Zen is forgetting the self in the act of uniting with something. – Koun Yamada",
+    "Let go, or be dragged. – Zen Proverb",
+    "When thoughts arise, then do all things arise. When thoughts vanish, then do all things vanish. – Huang Po",
+    "The noble-minded are calm and steady. Little people are forever fussing and fretting. – Confucius",
+    "All true artists, whether they know it or not, create from a place of no-mind, from inner stillness. – Eckhart Tolle",
+    "To accept some idea of truth without experiencing it is like a painting of a cake on paper which you cannot eat. – Suzuki Roshi",
+    "The resistance to the unpleasant situation is the root of suffering. – Ram Dass",
+    "Do not let the behavior of others destroy your inner peace. – Dalai Lama",
+    "Our prime purpose in this life is to help others. And if you can’t help them, at least don’t hurt them. – Dalai Lama",
+    "Smile, breathe and go slowly. – Thích Nhất Hạnh",
+    "What the superior man seeks is in himself; what the small man seeks is in others. – Confucius",
+    "Have good trust in yourself… not in the One that you think you should be, but in the One that you are. – Maezumi Roshi",
+    "When I feel like dancing, I dance. I don’t care if anyone else is dancing or if everyone else is laughing at me. I dance. – Rachel Danson",
+    "All that we are is the result of what we have thought. The mind is everything. What we think, we become. – Buddha",
+    "If you realize you have enough, you are truly rich. – Lao Tzu",
+    "The most important point is to accept yourself and stand on your two feet. – Shunryu Suzuki",
+    "Act without expectation. – Lao Tzu",
+    "Love is the absence of judgment. – Dalai Lama",
+    "To be beautiful means to be yourself. You don’t need to be accepted by others. You need to accept yourself. – Thích Nhất Hạnh",
+    "Trying to define yourself is like trying to bite your own teeth. – Alan Watts",
+    "Self-realization is effortless. What you are trying to find is what you already are. – Ramesh Balsekar",
+    "There is no mistake in nature. – Byron Katie",
+    "To seek is to suffer. To seek nothing is bliss. – Bodhidharma",
+    "The real meditation is how you live your life. – Jon Kabat-Zinn",
+    "Wise men don’t judge – they seek to understand. – Wei Wu Wei",
+    "One must be deeply aware of the impermanence of the world. – Dogen",
+    "Things are as they are. Looking out into the universe at night, we make no comparisons between right and wrong stars, nor between well and badly arranged constellations. – Alan Watts",
+    "Wisdom says we are nothing. Love says we are everything. Between these two our life flows. – Jack Kornfield",
+    "As a bee gathering nectar does not harm or disturb the color and fragrance of the flower; so do the wise move through the world. – Buddha",
+    "Nothing ever exists entirely alone. Everything is in relation to everything else. – Buddha",
+    "If you are depressed, you are living in the past. If you are anxious, you are living in the future. If you are at peace, you are living in the present. – Lao Tzu",
+    "Old friends pass away, new friends appear. It is just like the days. An old day passes, a new day arrives. The important thing is to make it meaningful: a meaningful friend – or a meaningful day. – Dalai Lama",
+    "Respect life, revere life. There is nothing more holy than life, nothing more divine than life. – Unknown",
+    "This dew like life fades away; time speeds swiftly. In this short life of ours, avoid involvement in superfluous things and just study the Way. – Dōgen Zenji",
+    "If you miss the present moment, you miss your appointment with life. That is very serious! – Thich Nhat Hanh",
+    "At the still-point in the center of the circle one can see the infinite in all things. – Chuang Tzu",
+    "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. – Buddha",
+    "Surrender to what is. Let go of what was. Have faith in what will be. – Sonia Ricotti",
+    "The present moment is filled with joy and happiness. If you are attentive, you will see it. – Thich Nhat Hahn",
+    "What day is it? asked Pooh. It’s today, squeaked Piglet. My favourite day, said Pooh. – A. A Milne",
+    "When you do something, you should burn yourself up completely, like a good bonfire, leaving no trace of yourself. – Shunryu Suzuki",
+    "Do not follow the idea of others, but learn to listen to the voice within yourself. – Dōgen Zenji",
+    "And when they played they really played. And when they worked they really worked. – Seuss",
+    "Fear is a natural reaction to moving closer to the truth. – Prema Chödrön",
+    "Mindfulness isn’t difficult, we just need to remember to do it. – Sharon Salzberg"
+  ]
 }
