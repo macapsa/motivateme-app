@@ -41,25 +41,32 @@ export default function InspireCard() {
   const getFavorites = (): string[] =>
     JSON.parse(localStorage.getItem(favoritesKey) || '[]')
 
-  const speakQuote = () => {
-  if (typeof window !== 'undefined') {
-    const utterance = new SpeechSynthesisUtterance(quote)
-    const voices = window.speechSynthesis.getVoices()
-    const preferredVoice = voices.find(voice =>
-      voice.name.toLowerCase().includes("english") &&
-      voice.lang.toLowerCase().includes("en") &&
-      voice.name.toLowerCase().includes("Male")
-    ) || voices.find(voice =>
-      voice.lang.toLowerCase().includes("en-gb") &&
-      voice.name.toLowerCase().includes("google") // fallback to Google American Male if available
-    )
+  const speakQuote = async () => {
+  try {
+    const response = await fetch("/api/elevenlabs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: quote,
+        style: "inspiration", // or "calm", "energetic", "wise"
+      }),
+    })
 
-    if (preferredVoice) {
-      utterance.voice = preferredVoice
+    const data = await response.json()
+
+    if (data?.audioData) {
+      const audio = new Audio(`data:audio/mpeg;base64,${data.audioData}`)
+      audio.play()
+    } else {
+      console.warn("Falling back to browser TTS")
+      const utterance = new SpeechSynthesisUtterance(quote)
+      utterance.lang = "en-GB"
+      speechSynthesis.speak(utterance)
     }
-
-    utterance.pitch = 2.0
-    utterance.rate = 0.90
+  } catch (err) {
+    console.error("TTS failed, falling back to browser voice:", err)
+    const utterance = new SpeechSynthesisUtterance(quote)
+    utterance.lang = "en-GB"
     speechSynthesis.speak(utterance)
   }
 }
