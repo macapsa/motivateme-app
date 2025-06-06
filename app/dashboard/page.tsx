@@ -1,21 +1,22 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { MoodTracker } from "@/components/mood-tracker"
-import { MoodChart } from "@/components/mood-chart"
-import { DailyGoals } from "@/components/daily-goals"
 import { AudioCoaching } from "@/components/audio-coaching"
-import { Calendar, ListTodo, Mic, Trophy, LogOut, BarChart3, Settings } from "lucide-react"
-import { HabitTracker } from "@/components/habit-tracker"
-import { DailyMessage } from "@/components/daily-message"
 import { AudioPermissionBanner } from "@/components/audio-permission-banner"
-import Link from "next/link"
-import { ScheduleManager } from "@/components/schedule-manager"
+import { DailyGoals } from "@/components/daily-goals"
 import { EventNotification } from "@/components/event-notification"
+import { HabitTracker } from "@/components/habit-tracker"
+import { MoodChart } from "@/components/mood-chart"
+import { MoodTracker } from "@/components/mood-tracker"
+import { ScheduleManager } from "@/components/schedule-manager"
+import { Button } from "@/components/ui/button"
+import InspireCard from '@/components/ui/InspireCard'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatePresence } from "framer-motion"
+import { BarChart3, Calendar, ListTodo, LogOut, Mic, Settings, Trophy } from "lucide-react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+
 
 interface User {
   id: string
@@ -117,8 +118,8 @@ export default function DashboardPage() {
       <main className="flex-1 py-6 px-4 md:px-6">
         <div className="container space-y-6">
           <AudioPermissionBanner />
-
-          <DailyMessage userName={user.name} />
+          
+          <InspireCard />
 
           <MoodTracker />
 
